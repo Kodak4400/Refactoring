@@ -2,11 +2,11 @@ function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
-  const format = new Intl.NumberFormat("en-US",
-    {
-      style: "currency", currency: "USD",
-      minimumFractionDigits: 2
-    }).format;
+  const format = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  }).format;
   for (let perf of invoice.performances) {
     const play = plays[perf.playID];
     let thisAmount = 0;
@@ -34,7 +34,9 @@ function statement(invoice, plays) {
     // 喜劇のときは10人につき、さらにポイントを加算
     if ("comedy" === play.type) volumeCredits += Math.floor(perf.audience / 5);
     // 注文の内訳を出力
-    result += `  ${play.name}: ${format(thisAmount / 100)} (${perf.audience} seats)\n`;
+    result += `  ${play.name}: ${format(thisAmount / 100)} (${
+      perf.audience
+    } seats)\n`;
     totalAmount += thisAmount;
   }
   result += `Amount owed is ${format(totalAmount / 100)}\n`;
@@ -42,6 +44,6 @@ function statement(invoice, plays) {
   return result;
 }
 
-var invoice = require('./invoices.json');
-var plays = require('./plays.json');
-statement(invoice, plays);
+const invoice = require("./invoices.json");
+const plays = require("./plays.json");
+console.log(statement(invoice[0], plays));
