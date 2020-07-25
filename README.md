@@ -10,6 +10,6 @@
  - [カプセル化](https://github.com/Kodak4400/Refactoring/tree/master/tecnic/capsule)
  - [特性の移動](https://github.com/Kodak4400/Refactoring/tree/master/tecnic/characteristic)
  - [データの再編成](https://github.com/Kodak4400/Refactoring/tree/master/tecnic/reorganize)
- - 条件記述の単純化
+ - [条件記述の単純化](https://github.com/Kodak4400/Refactoring/tree/master/tecnic/simple)
  - APIのリファクタリング
  - 継承の取り扱い
